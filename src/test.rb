@@ -33,7 +33,9 @@ def main(argv)
     dir = argv[0]
     test_files = Dir.glob("#{dir}/test_*.rb")
     test_files.each do |fname|
-       require fname
+      print "Loading #{fname}..." 
+      require fname
+      puts "#{GREEN}OK#{ENDC}"
     end
     
     test_functions = []
@@ -63,11 +65,12 @@ def main(argv)
            puts("#{RED}FAIL#{ENDC}")
          end
       rescue StandardError => e
+          n_fail+=1
           puts("#{RED}FAIL#{ENDC}")
           puts("Exception has occured")
           puts("-----EXCEPTION TRACE BEGIN-----")
           puts(e.message)
-          puts(e.trace.inspect)
+          puts(e.backtrace)
           puts("-----EXCEPTION TRACE END-----")
       end             
     end
