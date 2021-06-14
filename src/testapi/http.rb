@@ -32,6 +32,6 @@ module TestHTTP
     start = Time.now
     r = HTTParty::get(url+s, :headers => headers)
     _end = Time.now
-    Response.new(r.code, r.headers, r.body, start - _end)
+    Response.new(r.code, r.headers, r.body, _end - start)
   end
 end
