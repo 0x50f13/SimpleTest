@@ -13,7 +13,7 @@ module TestHTTP
         @code = code
         @data = data
         @headers = headers
-        @duration = durration
+        @duration = duration
     end
   end
 
