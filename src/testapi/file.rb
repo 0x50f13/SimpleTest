@@ -1,3 +1,4 @@
+require "digest"
 
 module FileAPI
   def self.md5(path)

@@ -8,10 +8,12 @@ module TestHTTP
     attr_reader :code
     attr_reader :headers
     attr_reader :data
-    def initialize(code, headers, data)
+    attr_reader :duration
+    def initialize(code, headers, data, duration)
         @code = code
         @data = data
         @headers = headers
+        @duration = durration
     end
   end
 
@@ -27,7 +29,9 @@ module TestHTTP
          end
        end
     end
+    start = Time.now
     r = HTTParty::get(url+s, :headers => headers)
-    Response.new(r.code, r.headers, r.body)
+    _end = Time.now
+    Response.new(r.code, r.headers, r.body, start - _end)
   end
 end
