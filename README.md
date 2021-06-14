@@ -4,11 +4,11 @@ SimpleTest is generic testing utility written in ruby.
 ## Using it
 The SimpleTest utility would load any ruby files beggining with `test_` in specified dir. So in order to run your tests you simply write:
 ```
-ruby simple_test.rb /path/to/tests
+ruby test.rb /path/to/tests
 ```
 
 The file with tests should contain module `Tests` each test function should beging from `test_` return `true` if test pass or `false` otherwise. An example of tests:
-```
+```ruby
 # File: tests/test_main.rb
 module Tests
   def self.divide_by_zero # Auxilary function: will not be called directly 
@@ -48,7 +48,8 @@ Class of HTTP response. Contains:
 Returns `TestHTTP::Response`
 <br>
 An example of using it:
-```
+
+```ruby
 require "testapi/http.rb"
 
 module Tests
